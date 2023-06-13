@@ -54,6 +54,8 @@ public class 两数之和 {
 
     /**
      * 哈希表
+     * 查询哈利表里是否有 target - nums[当前index] 值
+     * 如果有直接从哈希表里获取下标和当前下标
      * @param nums
      * @param target
      * @return

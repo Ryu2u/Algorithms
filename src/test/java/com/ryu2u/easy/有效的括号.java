@@ -31,8 +31,6 @@ public class 有效的括号 {
         if (s == null || "".equals(s) || s.length() <= 1) {
             return false;
         }
-        char c = s.charAt(0);
-
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             if ('(' == s.charAt(i) || '[' == s.charAt(i) || '{' == s.charAt(i)) {

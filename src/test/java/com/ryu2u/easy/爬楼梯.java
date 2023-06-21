@@ -68,7 +68,7 @@ public class 爬楼梯 {
     }
 
     /**
-     * 递归方法
+     * 递归方法(n=45时会超时)
      *
      * @param n
      * @return
@@ -81,8 +81,21 @@ public class 爬楼梯 {
         }else{
             return climbStairs2(n-1) + climbStairs2( n -2);
         }
-
     }
+
+    public static int climbStairs4(int n) {
+        int count = 1;
+        int q = 0;
+        int p = 0;
+        for (int i = 1; i <= n; i++) {
+            q = p; // 前两级台阶
+            p = count; // 上一级台阶
+            count = q + p;
+        }
+        return count;
+    }
+
+
 
     public static void main(String[] args) {
         System.out.println(climbStairs(13));

@@ -35,7 +35,7 @@ import java.util.Arrays;
  * @Description:
  * @date 2023/6/21 9:09
  */
-public class 合并两个有序数组 {
+public class ch88_合并两个有序数组 {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         for (int i = 0; i < n; i++) {
             int j = i + m;

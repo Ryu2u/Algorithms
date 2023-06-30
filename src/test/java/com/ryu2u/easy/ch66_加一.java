@@ -30,7 +30,7 @@ import java.util.Arrays;
  * @Description:
  * @date 2023/6/16 10:40
  */
-public class 加一 {
+public class ch66_加一 {
 
     public static int[] plusOne(int[] digits) {
         int len = digits.length;

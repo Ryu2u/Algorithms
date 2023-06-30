@@ -1,6 +1,5 @@
 package com.ryu2u.easy;
 
-import com.ryu2u.entity.ListNode;
 import com.ryu2u.entity.TreeNode;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ import java.util.List;
  * @Description:
  * @date 2023/6/21 13:44
  */
-public class 二叉树的中序遍历 {
+public class ch94_二叉树的中序遍历 {
     /**
      * 递归法
      * @param root

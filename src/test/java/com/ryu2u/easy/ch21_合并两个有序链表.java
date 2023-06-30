@@ -24,7 +24,7 @@ import com.ryu2u.entity.ListNode;
  * @Description:
  * @date 2023/6/13 13:26
  */
-public class 合并两个有序链表 {
+public class ch21_合并两个有序链表 {
     /**
      * 迭代法
      * @param list1

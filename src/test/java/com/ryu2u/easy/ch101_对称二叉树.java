@@ -16,7 +16,7 @@ import com.ryu2u.entity.TreeNode;
  * @Description:
  * @date 2023/6/27 9:31
  */
-public class 对称二叉树 {
+public class ch101_对称二叉树 {
 
     public static boolean isSymmetric(TreeNode root) {
         return isSameTree(root.left,root.right);

@@ -30,7 +30,7 @@ package com.ryu2u.easy;
  * @Description:
  * @date 2023/6/16 10:27
  */
-public class 最后一个单词的长度 {
+public class ch58_最后一个单词的长度 {
 
 
     public static int lengthOfLastWord(String s) {

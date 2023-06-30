@@ -25,7 +25,7 @@ import java.util.HashMap;
  * @Description:
  * @date 2023/6/9 14:58
  */
-public class 两数之和 {
+public class ch01_两数之和 {
 
     public static void main(String[] args) {
         int[] arr = {3,2,5};

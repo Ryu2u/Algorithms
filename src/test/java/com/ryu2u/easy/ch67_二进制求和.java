@@ -20,7 +20,7 @@ package com.ryu2u.easy;
  * @Description:
  * @date 2023/6/16 16:02
  */
-public class 二进制求和 {
+public class ch67_二进制求和 {
     public static String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
         int n = Math.max(a.length(), b.length());

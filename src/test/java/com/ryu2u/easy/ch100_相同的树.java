@@ -4,7 +4,6 @@ import com.ryu2u.entity.TreeNode;
 import org.junit.Test;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -26,7 +25,7 @@ import java.util.Queue;
  * @Description:
  * @date 2023/6/27 8:59
  */
-public class 相同的树 {
+public class ch100_相同的树 {
     /**
      * 深度优先搜索
      * @param p

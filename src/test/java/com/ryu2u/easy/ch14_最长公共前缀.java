@@ -18,7 +18,7 @@ package com.ryu2u.easy;
  * @Description:
  * @date 2023/6/9 16:03
  */
-public class 最长公共前缀 {
+public class ch14_最长公共前缀 {
     public static String longestCommonPrefix(String[] strs) {
         int index = 0;
         int n = strs.length;

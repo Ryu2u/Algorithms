@@ -23,7 +23,7 @@ package com.ryu2u.easy;
  * @Description:
  * @date 2023/6/18 13:19
  */
-public class x的平方根 {
+public class ch69_x的平方根 {
     /**
      * 二分法
      * @param x

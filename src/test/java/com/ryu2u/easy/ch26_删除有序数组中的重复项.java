@@ -1,6 +1,5 @@
 package com.ryu2u.easy;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -49,7 +48,7 @@ import java.util.Set;
  * @Description:
  * @date 2023/6/14 10:59
  */
-public class 删除有序数组中的重复项 {
+public class ch26_删除有序数组中的重复项 {
     /**
      * 自己写的
      * @param nums

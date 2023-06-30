@@ -1,7 +1,6 @@
 package com.ryu2u.easy;
 
 import com.ryu2u.entity.TreeNode;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -41,7 +40,7 @@ import java.util.List;
  * @Description:
  * @date 2023/6/21 14:26
  */
-public class 二叉树的前序遍历 {
+public class ch144_二叉树的前序遍历 {
     /**
      * 递归法
      * @param root

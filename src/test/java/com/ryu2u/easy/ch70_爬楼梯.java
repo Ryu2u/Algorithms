@@ -27,7 +27,7 @@ package com.ryu2u.easy;
  * @Description:
  * @date 2023/6/18 13:51
  */
-public class 爬楼梯 {
+public class ch70_爬楼梯 {
     /**
      * 动态规划: f(x) = f(x- 1) + f(x -2)
      * 爬到第x级台阶的方案为 爬到(x -1)级台阶爬一级 + 爬到(x -2)级台阶的方案爬两级

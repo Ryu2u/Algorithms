@@ -25,7 +25,7 @@ import java.util.Stack;
  * @Description:
  * @date 2023/6/11 17:23
  */
-public class 有效的括号 {
+public class ch20_有效的括号 {
 
     public static boolean isValid(String s) {
         if (s == null || "".equals(s) || s.length() <= 1) {

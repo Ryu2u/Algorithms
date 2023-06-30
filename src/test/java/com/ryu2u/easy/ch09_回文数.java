@@ -1,7 +1,5 @@
 package com.ryu2u.easy;
 
-import java.util.Arrays;
-
 /**
  *给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
  * 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
@@ -24,7 +22,7 @@ import java.util.Arrays;
  * @Description:
  * @date 2023/6/9 15:17
  */
-public class 回文数 {
+public class ch09_回文数 {
     public static void main(String[] args) {
         System.out.println(isPalindrome2(921129));
     }

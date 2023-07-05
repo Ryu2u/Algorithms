@@ -56,6 +56,37 @@ public class 最长回文子串 {
 
     }
 
+    public static String longest(String s){
+        int len = s.length();
+        boolean [][] dp = new boolean[len][len];
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        int maxLen = 1;
+        int begin = 0;
+        for (int i = 1; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                int l = j;
+                int r = i;
+                if(r > len-1){
+                    break;
+                }
+                if (s.charAt(l) != s.charAt(r)){
+                    dp[l][r] = false;
+                }else if(r - l +1 < 3){
+                    dp[l][r] = true;
+                }else{
+                    dp[l][r] = dp[l+1][r-1];
+                }
+                if(dp[l][r] && r-l+1 > maxLen){
+                    maxLen = r-l+1;
+                    begin = l;
+                }
+            }
+        }
+        return s.substring(begin,begin + maxLen);
+    }
+
 
     public static String longestPalindrome2(String s){
         int len = s.length();
@@ -92,6 +123,8 @@ public class 最长回文子串 {
     public static void main(String[] args) {
         String s = "bbabb";
         String s1 = longestPalindrome2(s);
+        String s2 = longest(s);
         System.out.println(s1);
+        System.out.println(s2);
     }
 }

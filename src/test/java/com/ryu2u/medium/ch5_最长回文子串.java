@@ -18,7 +18,7 @@ package com.ryu2u.medium;
  * @Description:
  * @date 2023/6/11 17:55
  */
-public class 最长回文子串 {
+public class ch5_最长回文子串 {
     public static String longestPalindrome(String s) {
         int len = s.length();
         boolean [][] dp = new boolean[len][len];

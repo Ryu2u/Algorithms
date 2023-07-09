@@ -221,4 +221,77 @@ public class ExerciseTest {
     }
 
 
+    @Test
+    public void test_20230709(){
+        //ch125
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+        // ch5
+        System.out.println(longestPalindrome("bb"));
+
+    }
+
+    public static boolean isPalindrome(String s) {
+        s = s.trim();
+        if ("".equals(s)){
+            return true;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c) || Character.isLetter(c)){
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+        s = sb.toString();
+        System.out.println(s);
+        int l = 0;
+        int r = s.length()-1;
+        while(l <= r){
+            char cl = s.charAt(l);
+            char cr = s.charAt(r);
+            if (cr != cl){
+                return false;
+            }else{
+                l++;
+                r--;
+            }
+
+        }
+        return true;
+    }
+    public static String longestPalindrome(String s) {
+        if (s.length() <= 1){
+            return s;
+        }
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        int begin = 0;
+        int maxLen = 1;
+        for (int i = 1; i < s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                int l = i -j +1;
+                if (l > s.length()){
+                    break;
+                }
+                if (s.charAt(i) != s.charAt(j)){
+                    dp[j][i] = false;
+                }else if(l <= 3){
+                    dp[j][i] = true;
+                }else{
+                    dp[j][i] = dp[j+1][i-1];
+                }
+
+                if (dp[j][i] && l > maxLen){
+                    maxLen = l;
+                    begin = j;
+                }
+            }
+        }
+        return s.substring(begin,begin + maxLen);
+
+    }
+
+
+
+
+
 }

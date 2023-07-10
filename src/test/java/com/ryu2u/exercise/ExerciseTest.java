@@ -290,6 +290,81 @@ public class ExerciseTest {
 
     }
 
+    @Test
+    public void test_20230710(){
+        // ch66
+        int[] ints = plusOne2(new int[]{9,9,9});
+        System.out.println(Arrays.toString(ints));
+        // ch108
+        // ch110
+        // ch111
+    }
+
+    public static int minDepth(TreeNode root) {
+        if(root == null){
+            return 0;
+        }else if(root.left == null && root.right == null){
+            return 1;
+        }else if(root.left == null ){
+            return minDepth(root.right) + 1;
+        }else if(root.right == null){
+            return minDepth(root.left) + 1;
+        }else{
+            return Math.min(minDepth(root.left) ,minDepth(root.right)) +1;
+        }
+    }
+
+    public static boolean isBalanced(TreeNode root) {
+        return height(root) >= 0;
+    }
+
+    public static int height(TreeNode root){
+        if (root == null){
+            return 0;
+        }
+        int left = height(root.left);
+        int right = height(root.right);
+        if (left == -1 || right == -1|| Math.abs(left -right) > 1){
+            return -1;
+        }else{
+            return Math.max( left,right) + 1;
+        }
+    }
+
+
+    public static int[] plusOne2(int[] digits) {
+        int len = digits.length -1;
+        while(len >= 0){
+            int num = digits[len];
+            if (num == 9){
+                digits[len] = 0;
+                len--;
+            }else{
+                digits[len]++;
+                return digits;
+            }
+        }
+        int[] arr = new int[digits.length+1];
+        arr[0] = 1;
+        return arr;
+    }
+
+    public static TreeNode sortedArrayToBST(int[] nums) {
+        return helper(nums,0,nums.length-1);
+    }
+
+    public static TreeNode helper(int[] nums,int left ,int right){
+        if (left > right){
+            return null;
+        }
+        int mid = (left + right) /2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = helper(nums,left,mid-1);
+        node.right = helper(nums,mid+1,right);
+        return node;
+    }
+
+
 
 
 

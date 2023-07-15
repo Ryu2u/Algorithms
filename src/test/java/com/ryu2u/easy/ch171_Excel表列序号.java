@@ -36,8 +36,7 @@ package com.ryu2u.easy;
  * @date 2023-06-30 13:30:16
  */
 public class ch171_Excel表列序号	{
-    public static int titleToNumber(String columnTitle) {
-
+    public static int titleToNumber2(String columnTitle) {
         int sum = 0;
         int len = columnTitle.length()-1;
         int pow = 0;
@@ -47,6 +46,14 @@ public class ch171_Excel表列序号	{
             sum += n * Math.pow(26,pow);
             pow++;
             len--;
+        }
+        return sum;
+    }
+
+    public static int titleToNumber(String columnTitle) {
+        int sum = 0;
+        for (int i = 0; i < columnTitle.length(); i++) {
+            sum = sum * 26 +( columnTitle.charAt(i) -'A' +1);
         }
         return sum;
     }

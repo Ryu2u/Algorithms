@@ -29,6 +29,7 @@ public class ListNode {
             System.out.print(head.next.val);
             head = head.next;
         }
+        System.out.println();
     }
 
 

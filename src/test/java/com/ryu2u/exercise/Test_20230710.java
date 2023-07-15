@@ -14,7 +14,7 @@ import java.util.*;
  * @Description:
  * @date 2023/7/6 15:43
  */
-public class ExerciseTest {
+public class Test_20230710 {
 
     public static final String EASY_PATH = "D:\\Project\\Demo\\JavaDEMO\\Algorithms\\src\\test\\java\\com\\ryu2u\\easy";
 

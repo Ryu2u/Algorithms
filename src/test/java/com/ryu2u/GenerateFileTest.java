@@ -16,30 +16,56 @@ import java.util.Date;
  */
 public class GenerateFileTest {
 
-    public static final String EASY_PATH = "D:\\Project\\Demo\\JavaDEMO\\Algorithms\\src\\test\\java\\com\\ryu2u\\easy";
+    public static final String EXERCISE_PATH = "\\src\\test\\java\\com\\ryu2u\\exercise";
+    public static final String EASY_PATH = "\\src\\test\\java\\com\\ryu2u\\easy";
     public static final String EASY_PACKAGE = "package com.ryu2u.easy;\n";
-    public static final String MEDIUM_PATH = "D:\\Project\\Demo\\JavaDEMO\\Algorithms\\src\\test\\java\\com\\ryu2u\\medium";
+    public static final String MEDIUM_PATH = "\\src\\test\\java\\com\\ryu2u\\medium";
     public static final String MEDIUM_PACKAGE = "package com.ryu2u.medium;\n";
-    public static final String DIFFICULT_PATH = "D:\\Project\\Demo\\JavaDEMO\\Algorithms\\src\\test\\java\\com\\ryu2u\\difficult";
+    public static final String DIFFICULT_PATH = "\\src\\test\\java\\com\\ryu2u\\difficult";
     public static final String DIFFICULT_PACKAGE = "package com.ryu2u.difficult;\n";
+    public static final String EXERCISE_PACKAGE = "package com.ryu2u.exercise;";
+
+    public static final String TEST_METHOD =
+            "    @Test\n" +
+            "    public void test(){\n" +
+            "        \n" +
+            "    }";
+
+    public static final String IMPORT_TEST = "import org.junit.Test;";
+
+    public String getPath() {
+        String property = System.getProperty("user.dir");
+        return property;
+    }
 
     private static final String LINE = "\r\n";
     private static final String TAB = "\t";
 
     @Test
     public void generateEasy() {
-        String[] fileNames = {"ch136_只出现一次的数字", "ch141_环形链表", "ch144_二叉树的前序遍历", "ch145_二叉树的后序遍历", "ch157_用Read4读取 N个字符", "ch160_相交链表", "ch163_缺失的区间", "ch168_Excel表列名称", "ch169_多数元素", "ch170_" +
-                "两数之和III_数据结构设计", "ch171_Excel表列序号", "ch175_组合两个表", "ch181_超过经理收入的员工", "ch182_查找重复的电子邮箱", "ch183_从不订购的客户", "ch190_颠倒二进制位", "ch191_位1的个数", "ch193_有效电话号码", "ch195_第十行", "ch196_删除重复的电子邮箱", "ch197_上升的温度", "ch202_快乐数"};
+        String[] fileNames = {};
         for (String fileName : fileNames) {
             fileName = fileName.replace(" ", "_");
-            generateFile(fileName);
+            String path = getPath() + EASY_PATH + fileName;
+            generateFile(path, fileName, EASY_PACKAGE);
         }
 
     }
 
-    public static void generateFile(String fileName) {
+    @Test
+    public void generateExerciseFile() throws IOException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String date = sdf.format(new Date());
+        String fileName = "Test_" + date;
+        String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;
+        generateFile(filePath, fileName, EXERCISE_PACKAGE);
+    }
+
+
+    public static void generateFile(String path, String fileName, String packageName) {
         StringBuilder sb = new StringBuilder();
-        sb.append(EASY_PACKAGE).append(LINE);
+        sb.append(packageName).append(LINE);
+        sb.append(IMPORT_TEST).append(LINE);
         sb.append("/**\n" +
                         " * @author Administrator\n" +
                         " * @Description:")
@@ -48,9 +74,18 @@ public class GenerateFileTest {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = sdf.format(new Date());
         sb.append(date).append(LINE).append(" */").append(LINE);
-        sb.append("public class ").append(fileName).append(TAB).append("{").append(LINE).append(LINE).append("}");
+        sb.append("public class ")
+                .append(fileName)
+                .append(TAB)
+                .append("{")
+                .append(LINE)
+                .append(TEST_METHOD)
+                .append(LINE)
+                .append(LINE)
+                .append(LINE)
+                .append("}");
         String content = sb.toString();
-        File file = new File(EASY_PATH + "\\" + fileName + ".java");
+        File file = new File(path + ".java");
         FileOutputStream fos = null;
         if (!file.exists()) {
             try {
@@ -82,14 +117,14 @@ public class GenerateFileTest {
             listNode.val = 1;
             System.out.println("111");
             return listNode;
-        }catch (Exception e){
+        } catch (Exception e) {
             listNode.val = 2;
-        }finally {
+        } finally {
             listNode.val = 3;
             System.out.println("finally");
 //            return listNode.val;
         }
-            return listNode;
+        return listNode;
     }
 
 

@@ -99,7 +99,7 @@ public class ch70_爬楼梯 {
 
     public static void main(String[] args) {
         System.out.println(climbStairs(13));
-        System.out.println(climbStairs3(3));
+        System.out.println(climbStairs3(45));
 
     }
 

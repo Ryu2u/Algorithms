@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -54,8 +56,9 @@ public class GenerateFileTest {
 
     @Test
     public void generateExerciseFile() throws IOException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String date = sdf.format(new Date());
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime dateTime = LocalDateTime.now();
+        String date = dateTime.format(sdf);
         String fileName = "Test_" + date;
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;
         generateFile(filePath, fileName, EXERCISE_PACKAGE);

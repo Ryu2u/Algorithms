@@ -57,7 +57,7 @@ public class GenerateFileTest {
     @Test
     public void generateExerciseFile() throws IOException {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime dateTime = LocalDateTime.now();
+        LocalDateTime dateTime = LocalDateTime.now().minusDays(1);
         String date = dateTime.format(sdf);
         String fileName = "Test_" + date;
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;

@@ -29,9 +29,9 @@ public class GenerateFileTest {
 
     public static final String TEST_METHOD =
             "    @Test\n" +
-            "    public void test(){\n" +
-            "        \n" +
-            "    }";
+                    "    public void test(){\n" +
+                    "        \n" +
+                    "    }";
 
     public static final String IMPORT_TEST = "import org.junit.Test;";
 
@@ -57,7 +57,7 @@ public class GenerateFileTest {
     @Test
     public void generateExerciseFile() throws IOException {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime dateTime = LocalDateTime.now().minusDays(1);
+        LocalDateTime dateTime = LocalDateTime.now();
         String date = dateTime.format(sdf);
         String fileName = "Test_" + date;
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;
@@ -105,6 +105,9 @@ public class GenerateFileTest {
                     }
                 }
             }
+            System.out.println("文件[" + fileName + "]已创建");
+        } else {
+            System.out.println("文件[" + fileName + "]已存在");
         }
     }
 

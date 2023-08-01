@@ -64,7 +64,6 @@ public class ch36_有效的数独 {
         int[][] row = new int[len][len];
         int[][] column = new int[len][len];
         int[][][] boxs = new int[3][3][len];
-
         for (int i = 0; i < len; i++) {
             for (int j = 0; j < len; j++) {
                 char c = board[i][j];

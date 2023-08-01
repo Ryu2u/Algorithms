@@ -41,12 +41,20 @@ public class ch31_下一个排列 {
 
     @Test
     public void test() {
-        int[] nums = {2, 2, 2, 2};
+        int[] nums = {2, 6, 3, 5, 4, 1};
         nextPermutation(nums);
         System.out.println(Arrays.toString(nums));
 
     }
 
+    /**
+     * 首先找出下一个数字刚好比他大的位置i
+     * 然后从后至 i 出找刚好比他大的数字，交换
+     * 然后从 i 位置后一位开始到结尾反转数组
+     * 由于第一步，所以我们交换完成后，i后面一定是降序的,所以反转后，就是下一个排列
+     *
+     * @param nums
+     */
     public void nextPermutation(int[] nums) {
         if (nums.length <= 1) {
             return;
@@ -67,7 +75,7 @@ public class ch31_下一个排列 {
             nums[k] = temp;
         }
         int n = nums.length - 1;
-        while(i <= n){
+        while (i <= n) {
             int temp = nums[i];
             nums[i] = nums[n];
             nums[n] = temp;

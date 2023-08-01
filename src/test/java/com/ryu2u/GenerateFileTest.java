@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -18,14 +19,14 @@ import java.util.Date;
  */
 public class GenerateFileTest {
 
-    public static final String EXERCISE_PATH = "\\src\\test\\java\\com\\ryu2u\\exercise";
+    public static String EXERCISE_PATH = "\\src\\test\\java\\com\\ryu2u\\exercise\\";
     public static final String EASY_PATH = "\\src\\test\\java\\com\\ryu2u\\easy";
     public static final String EASY_PACKAGE = "package com.ryu2u.easy;\n";
     public static final String MEDIUM_PATH = "\\src\\test\\java\\com\\ryu2u\\medium";
     public static final String MEDIUM_PACKAGE = "package com.ryu2u.medium;\n";
     public static final String DIFFICULT_PATH = "\\src\\test\\java\\com\\ryu2u\\difficult";
     public static final String DIFFICULT_PACKAGE = "package com.ryu2u.difficult;\n";
-    public static final String EXERCISE_PACKAGE = "package com.ryu2u.exercise;";
+    public static String EXERCISE_PACKAGE = "package com.ryu2u.exercise.";
 
     public static final String TEST_METHOD =
             "    @Test\n" +
@@ -44,20 +45,12 @@ public class GenerateFileTest {
     private static final String TAB = "\t";
 
     @Test
-    public void generateEasy() {
-        String[] fileNames = {};
-        for (String fileName : fileNames) {
-            fileName = fileName.replace(" ", "_");
-            String path = getPath() + EASY_PATH + fileName;
-            generateFile(path, fileName, EASY_PACKAGE);
-        }
-
-    }
-
-    @Test
     public void generateExerciseFile() throws IOException {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDateTime dateTime = LocalDateTime.now();
+        int monthValue = dateTime.getMonthValue();
+        EXERCISE_PATH += "month" + monthValue;
+        EXERCISE_PACKAGE += "month" + monthValue + ";";
         String date = dateTime.format(sdf);
         String fileName = "Test_" + date;
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;

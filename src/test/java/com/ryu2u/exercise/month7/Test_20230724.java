@@ -1,4 +1,4 @@
-package com.ryu2u.exercise;
+package com.ryu2u.exercise.month7;
 
 import org.junit.Test;
 

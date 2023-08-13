@@ -54,6 +54,7 @@ public class ch3_无重复字符的最长子串 {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (map.containsKey(c)){
+                // 为什么不是直接get + 1，反例: abba
                 l = Math.max(l,map.get(c) + 1);
             }
             map.put(c,i);

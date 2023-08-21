@@ -28,8 +28,8 @@ import java.math.BigDecimal;
 public class ch43_字符串相乘 {
     @Test
     public void test() {
-        String n1 = "9";
-        String n2 = "9";
+        String n1 = "9124123";
+        String n2 = "9123123";
         System.out.println(multiply(n1, n2));
         BigDecimal d1 = new BigDecimal(n1);
         BigDecimal d2 = new BigDecimal(n2);

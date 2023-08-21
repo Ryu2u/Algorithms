@@ -37,7 +37,6 @@ public class ch110_平衡二叉树 {
         if (root == null){
             return true;
         }
-
         return Math.abs(height(root.left) - height(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 

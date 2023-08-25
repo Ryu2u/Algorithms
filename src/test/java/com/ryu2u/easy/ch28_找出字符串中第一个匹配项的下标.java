@@ -46,6 +46,10 @@ public class ch28_找出字符串中第一个匹配项的下标 {
         int m = needle.length();
         char[] s = haystack.toCharArray();
         char[] p = needle.toCharArray();
+        // PMT中的值是字符串的前缀集合与后缀集合的交集中最长元素的长度。
+        // char:  a b a b a b c a
+        // index: 0 1 2 3 4 5 6 7
+        // value: 0 0 1 2 3 4 0 1
         int[] next = new int[m];
         for (int i = 1, j = 0; i < m; i++) {
             while (j > 0 && p[i] != p[j]) {

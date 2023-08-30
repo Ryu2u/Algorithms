@@ -43,9 +43,17 @@ public class ch231_2的幂 {
 
     }
 
+    /**
+     * 如果n是2的幂，那么他的二进制则为100000
+     * 也就是说这个二进制为1后面都是零,如果有一个不为0那么他就不是2的幂
+     * 而n-1则是将1变为了0，将1后面的0 变为了1
+     * 这样，两个数 与运算(同为1才为1不同为0) 的结果若是0 则说明为2的幂
+     *
+     * @param n
+     * @return
+     */
     public boolean isPowerOfTwo(int n) {
-        return n > 0 && (n & (n-1)) == 0;
-
+        return n > 0 && (n & (n - 1)) == 0;
     }
 
     public boolean isPowerOfTwo2(int n) {

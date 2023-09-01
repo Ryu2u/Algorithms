@@ -63,7 +63,7 @@ public class GenerateFileTest {
         sb.append(packageName).append(LINE);
         sb.append(IMPORT_TEST).append(LINE);
         sb.append("/**\n" +
-                        " * @author Administrator\n" +
+                        " * @author Ryu2u\n" +
                         " * @Description:")
                 .append(LINE);
         sb.append(" * @date ");

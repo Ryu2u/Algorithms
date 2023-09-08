@@ -25,7 +25,7 @@ public class GenerateFileTest {
     @Test
     public void generateExerciseFile() throws IOException {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime dateTime = LocalDateTime.now();
+        LocalDateTime dateTime = LocalDateTime.now().plusDays(2);
         int monthValue = dateTime.getMonthValue();
         EXERCISE_PATH += "month" + monthValue;
         EXERCISE_PACKAGE += "month" + monthValue + ";";

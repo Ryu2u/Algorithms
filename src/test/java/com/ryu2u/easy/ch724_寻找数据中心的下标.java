@@ -43,6 +43,7 @@ import org.junit.Test;
 public class ch724_寻找数据中心的下标 {
 
     /**
+     * 思路: 当前下标之前的值和 * 2 == (总和 - 当前下标值) * 2
      * 空间复杂度比较高
      * @param nums
      * @return

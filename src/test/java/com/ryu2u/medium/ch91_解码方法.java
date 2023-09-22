@@ -67,21 +67,21 @@ public class ch91_解码方法 {
 
     public int numDecodings2(String s) {
 
-        int a = 0;
-        int b = 1;
-        int c = 0;
+        int x = 0;
+        int y = 1;
+        int z = 0;
         for (int i = 1; i <= s.length(); i++) {
-            a = 0;
+            x = 0;
             if (s.charAt(i - 1) != '0') {
-                a += b;
+                x += y;
             }
             if (i > 1 && s.charAt(i - 2) != '0' && (s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0') <= 26) {
-                a += c;
+                x += z;
             }
-            c = b;
-            b = a;
+            z = y;
+            y = x;
         }
-        return a;
+        return x;
     }
 
 }

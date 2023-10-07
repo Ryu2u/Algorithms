@@ -2,6 +2,7 @@ package com.ryu2u;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +22,15 @@ public class GenerateFileTest {
         LocalDateTime dateTime = LocalDateTime.now();
         int monthValue = dateTime.getMonthValue();
         EXERCISE_PATH += "month" + monthValue;
+        String monthPath = getPath() + EXERCISE_PATH;
+        File monthFile = new File(monthPath);
+        if (!monthFile.exists()) {
+            boolean mkdir = monthFile.mkdir();
+            if (!mkdir) {
+                System.err.println("文件夹[" + monthPath + "]创建失败");
+                return;
+            }
+        }
         EXERCISE_PACKAGE += "month" + monthValue + ";";
         String date = dateTime.format(sdf);
         String fileName = "Test_" + date;

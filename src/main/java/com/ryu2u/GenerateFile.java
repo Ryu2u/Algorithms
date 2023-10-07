@@ -82,7 +82,7 @@ public class GenerateFile {
             }
             System.out.println("文件[" + fileName + "]已创建");
         } else {
-            System.out.println("文件[" + fileName + "]已存在");
+            System.err.println("文件[" + fileName + "]已存在");
         }
     }
 

@@ -41,7 +41,12 @@ public class ArrUtils {
         for (int[] anInt : ints) {
             System.out.println(Arrays.toString(anInt));
         }
+    }
 
+    public static void printMatrix(int[][] matrix) {
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
     }
 
 }

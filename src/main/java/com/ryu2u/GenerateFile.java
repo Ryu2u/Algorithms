@@ -24,13 +24,10 @@ public class GenerateFile {
     public static final String DIFFICULT_PACKAGE = "package com.ryu2u.difficult;\n";
     public static String EXERCISE_PACKAGE = "package com.ryu2u.exercise.";
 
-    public static final String TEST_METHOD =
-            "    @Test\n" +
-                    "    public void test(){\n" +
-                    "        \n" +
-                    "    }";
+    public static final String TEST_METHOD = "    @Test\n" + "    public void test(){\n" + "        \n" + "    }";
 
-    public static final String IMPORT_TEST = "import org.junit.Test;";
+    public static final String IMPORT_TEST = "import org.junit.Test;\n" + "import com.ryu2u.entity.TreeNode;\n" + "import com.ryu2u.entity.ListNode;";
+
 
     public static String getPath() {
         String property = System.getProperty("user.dir");
@@ -44,24 +41,12 @@ public class GenerateFile {
         StringBuilder sb = new StringBuilder();
         sb.append(packageName).append(LINE);
         sb.append(IMPORT_TEST).append(LINE);
-        sb.append("/**\n" +
-                        " * @author Ryu2u\n" +
-                        " * @Description:")
-                .append(LINE);
+        sb.append("/**\n" + " * @author Ryu2u\n" + " * @Description:").append(LINE);
         sb.append(" * @date ");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = sdf.format(new Date());
         sb.append(date).append(LINE).append(" */").append(LINE);
-        sb.append("public class ")
-                .append(fileName)
-                .append(TAB)
-                .append("{")
-                .append(LINE)
-                .append(TEST_METHOD)
-                .append(LINE)
-                .append(LINE)
-                .append(LINE)
-                .append("}");
+        sb.append("public class ").append(fileName).append(TAB).append("{").append(LINE).append(TEST_METHOD).append(LINE).append(LINE).append(LINE).append("}");
         String content = sb.toString();
         File file = new File(path + ".java");
         FileOutputStream fos = null;

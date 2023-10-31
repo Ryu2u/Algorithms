@@ -61,9 +61,11 @@ public class ch93_复原IP地址 {
             }
             list.add(String.join(".", temp));
         }
+        // 如果剩下的字符串不够或者超出了最大需要的长度,直接返回
         if (ip.length() - l < 4 - count || ip.length() - l > 3 * (4 - count)) {
             return;
         }
+        // ip的每一节最大是三位数
         for (int i = 0; i < 3; i++) {
             if (l + i > ip.length() - 1) {
                 break;
@@ -79,12 +81,11 @@ public class ch93_复原IP地址 {
     }
 
     private String getIpString(String s, int l, int r) {
-        int len = r - l + 1;
-        String str = s.substring(l, l + len);
+        String str = s.substring(l, r + 1);
         if (str.length() > 1 && str.startsWith("0")) {
             return "";
         }
-        int ipNum = Integer.valueOf(str);
+        int ipNum = Integer.parseInt(str);
         if (ipNum < 0 || ipNum > 255) {
             return "";
         }

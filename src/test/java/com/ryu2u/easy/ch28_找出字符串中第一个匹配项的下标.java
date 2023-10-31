@@ -75,6 +75,37 @@ public class ch28_找出字符串中第一个匹配项的下标 {
 
     }
 
+    /**
+     * 使用动态规划
+     *
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public int strStr3(String haystack, String needle) {
+        int m = haystack.length();
+        int n = needle.length();
+        char[] s = haystack.toCharArray();
+        char[] p = needle.toCharArray();
+        int[][] dp = new int[n][256];
+        dp[0][p[0]] = 1;
+        int x = 0;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < 256; j++) {
+                dp[i][j] = dp[x][j];
+            }
+            dp[i][p[i]] = i + 1;
+            x = dp[x][p[i]];
+        }
+        for (int i = 0, j = 0; i < m; i++) {
+            j = dp[j][s[i]];
+            if (j == n) {
+                return i - n + 1;
+            }
+        }
+        return -1;
+    }
+
     public int strStr2(String haystack, String needle) {
         int n = needle.length();
         for (int i = 0; i < haystack.length() - n + 1; i++) {

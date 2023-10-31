@@ -1,11 +1,15 @@
 package com.ryu2u;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 import static com.ryu2u.GenerateFile.*;
 
@@ -37,6 +41,5 @@ public class GenerateFileTest {
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;
         generateFile(filePath, fileName, EXERCISE_PACKAGE);
     }
-
 
 }

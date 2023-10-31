@@ -68,6 +68,7 @@ public class ch36_有效的数独 {
             for (int j = 0; j < len; j++) {
                 char c = board[i][j];
                 if (c != '.') {
+                    // 不 - '0' 的原因是不能数组越界
                     int index = c - '1';
                     row[i][index]++;
                     column[j][index]++;

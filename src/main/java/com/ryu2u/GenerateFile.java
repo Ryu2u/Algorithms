@@ -1,7 +1,5 @@
 package com.ryu2u;
 
-import com.ryu2u.entity.ListNode;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,14 +22,15 @@ public class GenerateFile {
     public static final String DIFFICULT_PACKAGE = "package com.ryu2u.difficult;\n";
     public static String EXERCISE_PACKAGE = "package com.ryu2u.exercise.";
 
-    public static final String TEST_METHOD = "    @Test\n" + "    public void test(){\n" + "        \n" + "    }";
+    public static final String TEST_METHOD_1 = "    @Test\n" + "    public void test${num}(){\n" + "        \n" + "    }";
+    public static final String TEST_METHOD_2 = "    @Test\n" + "    public void test2(){\n" + "        \n" + "    }";
+    public static final String TEST_METHOD_3 = "    @Test\n" + "    public void test3(){\n" + "        \n" + "    }";
 
     public static final String IMPORT_TEST = "import org.junit.Test;\n" + "import com.ryu2u.entity.TreeNode;\n" + "import com.ryu2u.entity.ListNode;";
 
 
     public static String getPath() {
-        String property = System.getProperty("user.dir");
-        return property;
+        return System.getProperty("user.dir");
     }
 
     private static final String LINE = "\r\n";
@@ -46,7 +45,18 @@ public class GenerateFile {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = sdf.format(new Date());
         sb.append(date).append(LINE).append(" */").append(LINE);
-        sb.append("public class ").append(fileName).append(TAB).append("{").append(LINE).append(TEST_METHOD).append(LINE).append(LINE).append(LINE).append("}");
+        sb.append("public class ").append(fileName).append(TAB).append("{").append(LINE).append(LINE);
+
+        for (int i = 0; i < 5; i++) {
+            String method = TEST_METHOD_1.replace("${num}", String.valueOf(i));
+            sb.append(method).append(LINE).append(LINE);
+        }
+
+//                .append(TEST_METHOD_1).append(LINE).append(LINE)
+//                .append(TEST_METHOD_2).append(LINE).append(LINE)
+//                .append(TEST_METHOD_3).append(LINE).append(LINE);
+
+        sb.append("}");
         String content = sb.toString();
         File file = new File(path + ".java");
         FileOutputStream fos = null;

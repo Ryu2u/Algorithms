@@ -21,25 +21,36 @@ import static com.ryu2u.GenerateFile.*;
 public class GenerateFileTest {
 
     @Test
+    public void test() {
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDateTime dateTime = LocalDateTime.now();
+        System.out.println(dateTime.getYear());
+    }
+
+
+    @Test
     public void generateExerciseFile() throws IOException {
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDateTime dateTime = LocalDateTime.now();
         int monthValue = dateTime.getMonthValue();
+        int year = dateTime.getYear();
+        EXERCISE_PATH += "YEAR_" + year + "\\";
         EXERCISE_PATH += "month" + monthValue;
         String monthPath = getPath() + EXERCISE_PATH;
         File monthFile = new File(monthPath);
         if (!monthFile.exists()) {
-            boolean mkdir = monthFile.mkdir();
+            boolean mkdir = monthFile.mkdirs();
             if (!mkdir) {
                 System.err.println("文件夹[" + monthPath + "]创建失败");
                 return;
             }
         }
-        EXERCISE_PACKAGE += "month" + monthValue + ";";
+        EXERCISE_PACKAGE += "YEAR_" + year + "." + "month" + monthValue + ";";
         String date = dateTime.format(sdf);
         String fileName = "Test_" + date;
         String filePath = getPath() + EXERCISE_PATH + "\\" + fileName;
         generateFile(filePath, fileName, EXERCISE_PACKAGE);
     }
+
 
 }

@@ -42,7 +42,6 @@ import java.util.List;
  * @date 2023/7/20 17:27
  */
 public class ch228_汇总区间 {
-
     @Test
     public void test() {
         int[] nums = {-2147483648,-2147483647,2147483647};

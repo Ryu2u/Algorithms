@@ -1,5 +1,6 @@
 package com.ryu2u.exercise.YEAR_2024.month3;
 
+import com.sun.xml.internal.org.jvnet.mimepull.CleanUpExecutorFactory;
 import org.junit.Test;
 import com.ryu2u.entity.TreeNode;
 import com.ryu2u.entity.ListNode;
@@ -374,6 +375,83 @@ public class Test_20240304 {
             }
         }
         return true;
+    }
+
+
+    @Test
+    public void test12() {
+        int[] arr = {1, 3, 5, 6};
+        int targets = 0;
+        System.out.println(searchInsert(arr, targets));
+    }
+
+    // ch35
+    public int searchInsert(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = (l + r) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+
+    @Test
+    public void test13() {
+
+    }
+
+    public int[] searchRange2(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = (r + l) / 2;
+            if (nums[mid] == target) {
+                int start = mid;
+                int end = mid;
+                while (start > 0 && nums[start] == nums[start - 1]) {
+                    start--;
+                }
+                while (end < nums.length - 1 && nums[end] == nums[end + 1]) {
+                    end++;
+                }
+                return new int[]{start, end};
+            } else if (nums[mid] > target) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+
+    @Test
+    public void test14() {
+        System.out.println(mySqrt(2147395599));
+    }
+
+    // ch69
+    public int mySqrt(int x) {
+        // 1 ... x
+        int i = 1;
+        int r = x;
+        int res = 0;
+        while (i <= r) {
+            int mid = i + (r - i) / 2;
+            if ((long) mid * mid <= x) {
+                res = mid;
+                i = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return res;
     }
 
 

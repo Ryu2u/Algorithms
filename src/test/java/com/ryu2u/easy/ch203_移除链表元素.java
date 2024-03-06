@@ -40,8 +40,33 @@ public class ch203_移除链表元素 {
         ListNode.printList(listNode);
     }
 
+
     /**
-     * 虚拟头结点
+     * 循环法
+     * @param head
+     * @param val
+     * @return
+     */
+    public ListNode removeElements3(ListNode head, int val) {
+        if (head == null){
+            return null;
+        }
+        ListNode node = new ListNode(0,head);
+        ListNode newNode = node;
+        while(node.next != null){
+            if (node.next.val == val){
+                node.next = node.next.next;
+            }else{
+                node = node.next;
+            }
+        }
+
+        return newNode.next;
+    }
+
+    /**
+     * 虚拟头结点 使用了新空间
+     *
      * @param head
      * @param val
      * @return

@@ -1,4 +1,4 @@
-package com.ryu2u;
+package com;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -20,12 +20,6 @@ import static com.ryu2u.GenerateFile.*;
  */
 public class GenerateFileTest {
 
-    @Test
-    public void test() {
-        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyyMMdd");
-        LocalDateTime dateTime = LocalDateTime.now();
-        System.out.println(dateTime.getYear());
-    }
 
 
     @Test

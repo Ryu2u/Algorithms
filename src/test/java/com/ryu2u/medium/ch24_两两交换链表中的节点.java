@@ -38,6 +38,19 @@ public class ch24_两两交换链表中的节点 {
         ListNode.printList(listNode);
     }
 
+    public ListNode swapPairs2(ListNode head) {
+        ListNode dummy = new ListNode(0,head);
+        ListNode cur = dummy;
+        while (cur.next != null && cur.next.next != null) {
+            ListNode node = cur.next;
+            ListNode next = cur.next.next;
+            node.next = next.next;
+            next.next = node;
+            cur.next = next;
+            cur = cur.next.next;
+        }
+        return dummy.next;
+    }
 
     public ListNode swapPairs(ListNode head) {
         if (head == null){

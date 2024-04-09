@@ -51,31 +51,31 @@ public class ch15_三数之和 {
 
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
-        quickSort(nums,0,nums.length-1);
+        quickSort(nums, 0, nums.length - 1);
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0){
+            if (nums[i] > 0) {
                 break;
             }
-            if (i>0&&nums[i] == nums[i-1]){
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            int l = i +1;
-            int r = nums.length-1;
-            while(l < r){
+            int l = i + 1;
+            int r = nums.length - 1;
+            while (l < r) {
                 int sum = nums[i] + nums[l] + nums[r];
-                if (sum==0){
-                    list.add(Arrays.asList(nums[i],nums[l],nums[r]));
-                    while(l<r && nums[l] == nums[l + 1]){
+                if (sum == 0) {
+                    list.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                    while (l < r && nums[l] == nums[l + 1]) {
                         l++;
                     }
-                    while(l<r && nums[r] == nums[r-1]){
+                    while (l < r && nums[r] == nums[r - 1]) {
                         r--;
                     }
                     l++;
                     r--;
-                }else if (sum > 0){
+                } else if (sum > 0) {
                     r--;
-                }else {
+                } else {
                     l++;
                 }
             }
@@ -84,30 +84,30 @@ public class ch15_三数之和 {
 
     }
 
-    private void quickSort(int[] arr ,int low,int high){
-        if (low >= high){
+    private void quickSort(int[] arr, int low, int high) {
+        if (low >= high) {
             return;
         }
         int l = low;
         int r = high;
         int k = arr[l];
-        while(l < r){
-            while(l < r && arr[r] >= k){
+        while (l < r) {
+            while (l < r && arr[r] >= k) {
                 r--;
             }
             int temp = arr[l];
             arr[l] = arr[r];
             arr[r] = temp;
 
-            while(l < r && arr[l] <= k){
+            while (l < r && arr[l] <= k) {
                 l++;
             }
             temp = arr[l];
             arr[l] = arr[r];
             arr[r] = temp;
         }
-        quickSort(arr,l + 1,high);
-        quickSort(arr,low,r-1);
+        quickSort(arr, l + 1, high);
+        quickSort(arr, low, r - 1);
     }
 
 
